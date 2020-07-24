@@ -4,16 +4,21 @@ import matplotlib.pyplot as plt
 
 def Sentiment_Analyzer():
 
+    #populate lists with negative and positive connotative words
     with open('negative.txt') as f:
         negWords = f.read().splitlines()
 
     with open('positive.txt') as f:
         posWords = f.read().splitlines()
+
     count = 1
 
     while True:
+        #end program if 4 queries have already been enteres
         if(count > 4):
             break
+
+        #request user input and terminate if requested
         print("Enter search term you want to analyze twitter sentiment for (Ex. \"Coronavirus\"). Enter \"END\" to end program:")
         query = input();
         if(query == "END"):
@@ -37,6 +42,7 @@ def Sentiment_Analyzer():
 
         dict = {}
 
+        #run sentiment analysis on query from start date to end date
         while start <= end:
             print(str(start) + " - " + query)
             date1 = start
@@ -67,6 +73,7 @@ def Sentiment_Analyzer():
                     if negWord in tweet.text:
                         negCount += 1
 
+            #populate dict with daily sentiment ratios
             if(negCount > 0):
                 dict[start] = float(posCount)/float(negCount)
             else:
@@ -90,11 +97,13 @@ def Sentiment_Analyzer():
         avg = sum/float(j)
 
         i = 0
+        #plot daily sentiment ratios and add query to legend
         for key in dict.keys():
             plt.plot(key, dict.get(key), color + 'o', label=query + ': Average = ' + str(round(avg, 2)) if i == 0 else "")
             i += 1
             sum += dict.get(key)
 
+        #add average daily sentiment ratio line for query
         keyList = list(dict.keys())
         date1 = keyList[0]
         date2 = keyList[len(keyList)-1]
