@@ -17,8 +17,12 @@ python SentimentAnalyzer.py
 ```
 
 ## Using Application
+When the program is run, the user will be prompted to enter a query that they want to analyze the sentiment for and a start and end date for their analysis.
+![](Figure_1.PNG)
 
-
+The program will then analyze the sentiment for the query and ask the user for another query if they wish to do so. A maximum of 4 queries are allowed.
+Once the user terminates the program, a scratterplot with the sentiment analysis results will pop up.
+![](TSA1.PNG)
 
 ## Built With
 * Atom - Source code editor used for development
