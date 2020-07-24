@@ -11,7 +11,9 @@ You will need a way to run the program which is written in Python. The Command P
 
 1. Clone the project repository to your local machine. (https://github.com/rnmurthy1996/Twitter-Sentiment-Analyzer.git)
 2. Open command prompt, change your directory to the project repository, and enter the following command to launch the program:
-```python SentimentAnalyzer.py
+
+```
+python SentimentAnalyzer.py
 ```
 
 ## Using Application
